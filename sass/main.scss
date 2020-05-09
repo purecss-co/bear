@@ -1,0 +1,210 @@
+// colors
+$bg-color: #f6f5f1;
+$bear-color: #343233;
+
+@mixin shape($width, $height, $background) {
+  width: $width;
+  height: $height;
+  background: $background;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: $bg-color;
+  overflow: hidden;
+
+  * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    box-sizing: border-box;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+    }
+  }
+}
+
+.ear {
+  z-index: 2;
+  top: -50vmin;
+  left: -64.5vmin;
+  border-bottom: 12vmin solid $bear-color;
+  border-left: 4.3vmin solid transparent;
+  border-right: 4.3vmin solid transparent;
+  height: 0;
+  width: 18vmin;
+  transform: rotate(-44deg);
+
+  &::before {
+    @include shape(9.7vmin, 8vmin, $bear-color);
+    border-radius: 50%;
+    top: -3vmin;
+    left: -0.1vmin;
+  }
+}
+
+.ear-right {
+  transform: scaleX(-1);
+  left: 64.5vmin;
+  transform: rotate(44deg);
+}
+
+.head {
+  @include shape(81vmin, 66vmin, $bear-color);
+  top: -0.5vmin;
+  border-top-right-radius: 32vmin;
+  border-top-left-radius: 32vmin;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+
+  &::before {
+    z-index: 5;
+    width: 0;
+    height: 0;
+    border-left: 19vmin solid transparent;
+    border-right: 19vmin solid transparent;
+    border-top: 9vmin solid $bear-color;
+    left: 21.5vmin;
+    bottom: -5vmin;
+  }
+}
+
+.eye {
+  z-index: 3;
+  @include shape(12vmin, 12vmin, $bear-color);
+  border-radius: 50%;
+  left: -17vmin;
+  top: -2.5vmin;
+  box-shadow: 0 0 0 0.6vmin $bg-color,
+    0 0 0 1.9vmin $bear-color,
+    0 0 0 2.5vmin $bg-color,
+    0 0 0 3.8vmin $bear-color,
+    0 0 0 4.3vmin $bg-color,
+    0 0 0 5.6vmin $bear-color,
+    0 0 0 6.1vmin $bg-color,
+    0 0 0 7.4vmin $bear-color,
+    0 0 0 7.9vmin $bg-color,
+    0 0 0 9.2vmin $bear-color,
+    0 0 0 9.7vmin $bg-color,
+    0 0 0 11vmin $bear-color,
+    0 0 0 11.6vmin $bg-color,
+    0 0 0 12.8vmin $bear-color,
+    0 0 0 13.4vmin $bg-color,
+    0 0 0 14.7vmin $bear-color,
+    0 0 0 15.2vmin $bg-color;
+}
+
+.eye-right {
+  z-index: 2;
+  left: 17.1vmin;
+}
+
+.eye-right-2 {
+  z-index: 3;
+  @include shape(12vmin, 12vmin, red);
+  border-radius: 50%;
+  left: 17.1vmin;
+  top: -2.4vmin;
+  box-shadow: 0 0 0 0.6vmin $bg-color,
+    0 0 0 1.9vmin $bear-color,
+    0 0 0 2.5vmin $bg-color,
+    0 0 0 3.8vmin $bear-color,
+    0 0 0 4.3vmin $bg-color,
+    0 0 0 5.6vmin $bear-color,
+    0 0 0 6.1vmin $bg-color;
+}
+
+.face {
+  z-index: 4;
+  @include shape(10.7vmin, 14vmin, $bg-color);
+  top: -23.5vmin;
+  left: -11.7vmin;
+  border-top-left-radius: 20vmin;
+  transform: rotate(6deg) skewY(-27.5deg);
+
+  &::before {
+    @include shape(10.7vmin, 14vmin, $bg-color);
+    border-top-right-radius: 20vmin;
+    left: 11.3vmin;
+    top: 4vmin;
+    transform: rotate(-9.5deg) skewY(47.5deg);
+  }
+
+  &::after {
+    @include shape(20vmin, 12vmin, $bg-color);
+    transform: rotate(-6deg) skewY(27.5deg);
+    left: 5vmin;
+    top: 7.5vmin;
+    left: 2vmin;
+    border-top-right-radius: 5vmin;
+    border-top-left-radius: 5vmin;
+  }
+}
+
+.face-2 {
+  z-index: 4;
+  @include shape(18.4vmin, 35vmin, $bg-color);
+  left: -0.2vmin;
+  top: 13vmin;
+  border-bottom-right-radius: 9vmin;
+  border-bottom-left-radius: 9vmin;
+
+  &::before {
+    @include shape(2vmin, 2vmin, $bg-color);
+    border-radius: 50%;
+    top: 8.8vmin;
+    left: -0.3vmin;
+    box-shadow: 0 0 0 5vmin $bear-color;
+  }
+
+  &::after {
+    @include shape(2vmin, 2vmin, $bg-color);
+    border-radius: 50%;
+    top: 8.8vmin;
+    left: 16.8vmin;
+    box-shadow: 0 0 0 5.1vmin $bear-color;
+  }
+}
+
+%face-3 {
+  z-index: 4;
+  width: 0;
+  height: 0;
+  border-top: 6.8vmin solid $bear-color;
+  border-right: 8.5vmin solid transparent;
+  left: -12.3vmin;
+  top: 12.5vmin;
+  transform: rotate(-40deg) skewX(-40deg);
+
+  &:before {
+    @include shape(1.5vmin, 6vmin, $bear-color);
+    top: -7vmin;
+    left: 3.8vmin;
+    transform: rotate(60deg);
+  }
+}
+
+.face-3 {
+  @extend %face-3;
+}
+
+.face-4 {
+  @extend %face-3;
+  transform: rotate(40deg) skewX(40deg) scaleX(-1);
+  left: 12vmin;
+}
+
+.mouth {
+  z-index: 4;
+  @include shape(14.8vmin, 9.2vmin, $bear-color);
+  top: 37vmin;
+  left: -0.4vmin;
+}
