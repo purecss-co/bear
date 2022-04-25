@@ -2,12 +2,6 @@
 $bg-color: #f6f5f1;
 $bear-color: #343233;
 
-@mixin shape($width, $height, $background) {
-  width: $width;
-  height: $height;
-  background: $background;
-}
-
 html,
 body {
   width: 100%;
@@ -34,44 +28,44 @@ body {
 
 .ear {
   z-index: 2;
-  top: -50vmin;
-  left: -64.5vmin;
+  height: 0;
+  width: 18vmin;
   border-bottom: 12vmin solid $bear-color;
   border-left: 4.3vmin solid transparent;
   border-right: 4.3vmin solid transparent;
-  height: 0;
-  width: 18vmin;
+  top: -50vmin;
+  left: -64.5vmin;
   transform: rotate(-44deg);
 
   &::before {
-    @include shape(9.7vmin, 8vmin, $bear-color);
-    border-radius: 50%;
+    width: 9.7vmin;
+    height: 8vmin;
+    background: $bear-color;
     top: -3vmin;
     left: -0.1vmin;
+    border-radius: 50%;
   }
 }
 
 .ear-right {
-  transform: scaleX(-1);
   left: 64.5vmin;
-  transform: rotate(44deg);
+  transform: rotate(44deg) scaleX(-1);
 }
 
 .head {
-  @include shape(81vmin, 66vmin, $bear-color);
+  width: 81vmin;
+  height: 66vmin;
+  background: $bear-color;
   top: -0.5vmin;
-  border-top-right-radius: 32vmin;
-  border-top-left-radius: 32vmin;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
+  border-radius: 32vmin 32vmin 50% 50%;
 
   &::before {
     z-index: 5;
     width: 0;
     height: 0;
+    border-top: 9vmin solid $bear-color;
     border-left: 19vmin solid transparent;
     border-right: 19vmin solid transparent;
-    border-top: 9vmin solid $bear-color;
     left: 21.5vmin;
     bottom: -5vmin;
   }
@@ -79,10 +73,12 @@ body {
 
 .eye {
   z-index: 3;
-  @include shape(12vmin, 12vmin, $bear-color);
-  border-radius: 50%;
-  left: -17vmin;
+  width: 12vmin;
+  height: 12vmin;
+  background: $bear-color;
   top: -2.5vmin;
+  left: -17vmin;
+  border-radius: 50%;
   box-shadow: 0 0 0 0.6vmin $bg-color,
     0 0 0 1.9vmin $bear-color,
     0 0 0 2.5vmin $bg-color,
@@ -109,10 +105,12 @@ body {
 
 .eye-right-2 {
   z-index: 3;
-  @include shape(12vmin, 12vmin, red);
-  border-radius: 50%;
-  left: 17.1vmin;
+  width: 12vmin;
+  height: 12vmin;
+  background: $bear-color;
   top: -2.4vmin;
+  left: 17.1vmin;
+  border-radius: 50%;
   box-shadow: 0 0 0 0.6vmin $bg-color,
     0 0 0 1.9vmin $bear-color,
     0 0 0 2.5vmin $bg-color,
@@ -124,52 +122,61 @@ body {
 
 .face {
   z-index: 4;
-  @include shape(10.7vmin, 14vmin, $bg-color);
+  width: 10.7vmin;
+  height: 14vmin;
+  background: $bg-color;
   top: -23.5vmin;
   left: -11.7vmin;
-  border-top-left-radius: 20vmin;
+  border-radius: 20vmin 0 0 0;
   transform: rotate(6deg) skewY(-27.5deg);
 
   &::before {
-    @include shape(10.7vmin, 14vmin, $bg-color);
-    border-top-right-radius: 20vmin;
-    left: 11.3vmin;
+    width: 10.7vmin;
+    height: 14vmin;
+    background: $bg-color;
     top: 4vmin;
+    left: 11.3vmin;
+    border-radius: 0 20vmin 0 0;
     transform: rotate(-9.5deg) skewY(47.5deg);
   }
 
   &::after {
-    @include shape(20vmin, 12vmin, $bg-color);
-    transform: rotate(-6deg) skewY(27.5deg);
-    left: 5vmin;
+    width: 20vmin;
+    height: 12vmin;
+    background: $bg-color;
     top: 7.5vmin;
     left: 2vmin;
-    border-top-right-radius: 5vmin;
-    border-top-left-radius: 5vmin;
+    border-radius: 5vmin 5vmin 0 0;
+    transform: rotate(-6deg) skewY(27.5deg);
   }
 }
 
 .face-2 {
   z-index: 4;
-  @include shape(18.4vmin, 35vmin, $bg-color);
-  left: -0.2vmin;
+  width: 18.4vmin;
+  height: 35vmin;
+  background: $bg-color;
   top: 13vmin;
-  border-bottom-right-radius: 9vmin;
-  border-bottom-left-radius: 9vmin;
+  left: -0.2vmin;
+  border-radius: 0 0 9vmin 9vmin;
 
   &::before {
-    @include shape(2vmin, 2vmin, $bg-color);
-    border-radius: 50%;
+    width: 2vmin;
+    height: 2vmin;
+    background: $bg-color;
     top: 8.8vmin;
     left: -0.3vmin;
+    border-radius: 50%;
     box-shadow: 0 0 0 5vmin $bear-color;
   }
 
   &::after {
-    @include shape(2vmin, 2vmin, $bg-color);
-    border-radius: 50%;
+    width: 2vmin;
+    height: 2vmin;
+    background: $bg-color;
     top: 8.8vmin;
     left: 16.8vmin;
+    border-radius: 50%;
     box-shadow: 0 0 0 5.1vmin $bear-color;
   }
 }
@@ -185,7 +192,9 @@ body {
   transform: rotate(-40deg) skewX(-40deg);
 
   &:before {
-    @include shape(1.5vmin, 6vmin, $bear-color);
+    width: 1.5vmin;
+    height: 6vmin;
+    background: $bear-color;
     top: -7vmin;
     left: 3.8vmin;
     transform: rotate(60deg);
@@ -198,13 +207,15 @@ body {
 
 .face-4 {
   @extend %face-3;
-  transform: rotate(40deg) skewX(40deg) scaleX(-1);
   left: 12vmin;
+  transform: rotate(40deg) skewX(40deg) scaleX(-1);
 }
 
 .mouth {
   z-index: 4;
-  @include shape(14.8vmin, 9.2vmin, $bear-color);
+  width: 14.8vmin;
+  height: 9.2vmin;
+  background: $bear-color;
   top: 37vmin;
   left: -0.4vmin;
 }
