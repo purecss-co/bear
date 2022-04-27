@@ -28,8 +28,8 @@ body {
 
 .ear {
   z-index: 2;
-  height: 0;
   width: 18vmin;
+  height: 0;
   border-bottom: 12vmin solid $bear-color;
   border-left: 4.3vmin solid transparent;
   border-right: 4.3vmin solid transparent;
@@ -187,8 +187,8 @@ body {
   height: 0;
   border-top: 6.8vmin solid $bear-color;
   border-right: 8.5vmin solid transparent;
-  left: -12.3vmin;
   top: 12.5vmin;
+  left: -12.3vmin;
   transform: rotate(-40deg) skewX(-40deg);
 
   &:before {
